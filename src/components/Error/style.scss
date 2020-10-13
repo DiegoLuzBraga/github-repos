@@ -1,0 +1,11 @@
+@import "../../SASS/mixins.scss";
+@import "../../SASS/variables.scss";
+
+.error {
+  @include display(column, center, center);
+  h2 {
+    color: $default-text-color;
+    margin: 3px 0 63px;
+    font-weight: 500;
+  }
+}

@@ -1,44 +1,55 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Git Repos
 
-## Available Scripts
+## :arrow_forward: Como executar
 
-In the project directory, you can run:
+1. Tenha certeza de que tem [instalado o npm na sua máquina](https://dicasdejavascript.com.br/instalacao-do-nodejs-e-npm-no-windows-passo-a-passo/#:~:text=Para%20verificar%20se%20o%20node,comando%20conforme%20a%20imagem%20abaixo.).
+2. Após isso, pelo terminal, vá até o diretório onde baixou o projeto;
+3. Agora, execute o comando `npm i` para baixar todas as dependências do projeto;
+4. Após a instalação das dependências, execute o comando `npm run start` e será aberta uma aba no seu navegador padrão com o endereço [http://localhost:8080/](http://localhost:8080/);
+5. A aplicação necessita de internet para funcionar;
 
-### `npm start`
+## :computer: Tecnologias utilizadas
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**Bibliotecas**
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- React;
+- Typescript;
+- Mobx;
+- SASS;
+- jest;
+- react testing library;
 
-### `npm test`
+**Linguagem**: Javascript
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Arquitetura:** Redux-Like
 
-### `npm run build`
+## :scroll: Features
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [x]
+- []
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## :bar_chart: Justificativa para o uso das tecnologias
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Decisões técnicas:**
+Alguns fatores chave nortearam a maioria das decisões técnicas feitas no desenvolvimento dessa aplicação: código reutilizável, testável e facilmente substituível sem grandes refatorações a aplicação. Mesmo sendo uma aplicação pequena, as decisões foram tomadas visualizando um desenvolvimento contínuo e escalável.
 
-### `npm run eject`
+**Redux-Like e Mobx**
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Optei por utilizar Typescript por ter maior familiaridade.
+- A arquitetura em questão foi escolhida devido a sua testabilidade, separação de responsabilidade e fácil integração com os componentes React e outros recursos utilizados no projeto como Hooks e injeção de dependência. Utilizar uma arquitetura Redux-Like facilitou a implementação desses processos e facilitando a substituição dos métodos em caso de testes ou até na troca por outra API sem a necessidade de grande refatoração no código.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Injeção de dependência**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Além de ser uma prática que auxilia na criação de uma boa arquitetura, a injeção de dependência apresenta as vantagens que nortearam a maioria das decisões técnicas feitas no desenvolvimento dessa aplicação: código reutilizável, testável e de facil refatoração.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+**Jest e RTL**
 
-## Learn More
+- As bibliotecas Jest e React Testing Library (RTL) são open-source e possuem confiabilidade dentro da comunidade React, possuem atualizações frequentes e usos em diversas aplicações comerciais.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## :interrobang: Observações
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Caso o usuário tenha definido suas preferências e clique em alguma categoria, serão mostradas as preferências e a categoria selecionada.
+
+## :thought_balloon: Será que esqueci alguma coisa?
+
+Caso tenha alguma dúvida, sugestão ou melhoria é só falar! (ou abrir um PR).
