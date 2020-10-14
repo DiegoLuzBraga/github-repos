@@ -6,7 +6,7 @@ export const baseRequest = async <T>(
 		status: "default" | "error" | "success" | "warning" | "info"
 	) => void
 ) => {
-	await fetch(`https://api.github.com/users/${url}`, {
+	fetch(`https://api.github.com/users/${url}`, {
 		method: "GET",
 		headers: {
 			"content-type": "application/json",

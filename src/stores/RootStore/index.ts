@@ -3,24 +3,24 @@ import { History, createBrowserHistory } from "history";
 import { createContext, useContext } from "react";
 import { AbstractRootStore } from "./__abstract__";
 import { rootStoreContextMock, RootStoreMock } from "./__mocks__";
-import { AuthStore } from "../AuthStore";
+import { ReposStore } from "../ReposStore";
 
 export class RootStore extends AbstractRootStore {
 	public routerStore: RouterStore;
 	public history: History;
-	public authStore: AuthStore;
+	public reposStore: ReposStore;
 
 	public constructor() {
 		super();
 		const browerHistory = createBrowserHistory();
 		this.routerStore = new RouterStore();
 		this.history = syncHistoryWithStore(browerHistory, this.routerStore);
-		this.authStore = new AuthStore();
+		this.reposStore = new ReposStore();
 
 		return {
 			routerStore: this.routerStore,
 			history: this.history,
-			authStore: this.authStore,
+			reposStore: this.reposStore,
 		};
 	}
 }
