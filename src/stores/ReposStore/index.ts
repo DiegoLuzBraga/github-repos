@@ -3,33 +3,40 @@ import { AbstractReposStore } from "./__abstract__";
 import { baseRequest } from "../../utils/baseRequest";
 
 export class ReposStore extends AbstractReposStore {
-	public getUser = async (
-		handleRequest: (response: UserData) => void,
-		notificate: (
-			message: string,
-			status: "default" | "error" | "success" | "warning" | "info"
-		) => void
-	) => {
-		await baseRequest(`${this.userName}`, handleRequest, notificate);
-	};
+  public getUser = async (handleRequest: (response: UserData) => void) => {
+    await baseRequest<UserData>(
+      `${this.userName}`,
+      data => {
+        handleRequest(data);
+        this.setError(null);
+      },
+      error => this.setError(error)
+    );
+  };
 
-	public getUserRepos = async (
-		handleRequest: (response: RepoData[]) => void,
-		notificate: (
-			message: string,
-			status: "default" | "error" | "success" | "warning" | "info"
-		) => void
-	) => {
-		await baseRequest(`${this.userName}/repos`, handleRequest, notificate);
-	};
+  public getUserRepos = async (
+    handleRequest: (response: RepoData[]) => void
+  ) => {
+    await baseRequest<RepoData[]>(
+      `${this.userName}/repos`,
+      data => {
+        handleRequest(data);
+        this.setError(null);
+      },
+      this.setError
+    );
+  };
 
-	public getUserReposStarred = async (
-		handleRequest: (response: StarredData[]) => void,
-		notificate: (
-			message: string,
-			status: "default" | "error" | "success" | "warning" | "info"
-		) => void
-	) => {
-		await baseRequest(`${this.userName}/starred`, handleRequest, notificate);
-	};
+  public getUserReposStarred = async (
+    handleRequest: (response: StarredData[]) => void
+  ) => {
+    await baseRequest<StarredData[]>(
+      `${this.userName}/starred`,
+      data => {
+        handleRequest(data);
+        this.setError(null);
+      },
+      this.setError
+    );
+  };
 }

@@ -1,23 +1,25 @@
 export const baseRequest = async <T>(
-	url: string,
-	handleRequest: (response: T) => void,
-	notificate: (
-		message: string,
-		status: "default" | "error" | "success" | "warning" | "info"
-	) => void
+  url: string,
+  handleRequest: (response: T) => void,
+  handleRequestError: (error: string) => void
 ) => {
-	fetch(`https://api.github.com/users/${url}`, {
-		method: "GET",
-		headers: {
-			"content-type": "application/json",
-		},
-	})
-		.then(async (response) => {
-			const data = await response.json();
-			handleRequest(data);
-		})
-		.catch(async (error) => {
-			const data = await error.json();
-			notificate(data.message, "error");
-		});
+  await fetch(`https://api.github.com/users/${url}`, {
+    method: "GET",
+    headers: {
+      "content-type": "application/json",
+      Authorization: process.env.TOKEN || ""
+    }
+  })
+    .then(async response => {
+      const data = await response.json();
+      if (!data.massage) {
+        handleRequest(data);
+      } else {
+        handleRequestError(data.message);
+      }
+    })
+    .catch(async error => {
+      const data = await error.json();
+      handleRequestError(data.message);
+    });
 };

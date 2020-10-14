@@ -1,24 +1,32 @@
-import { RouterStore, syncHistoryWithStore } from "mobx-react-router";
-import { History, createBrowserHistory } from "history";
-import { createContext } from "react";
-import { AbstractRootStore } from "../__abstract__";
+import { RepoData, StarredData, UserData } from "../../../@types/APITypes";
+import { AbstractReposStore } from "../__abstract__";
 
-export class RootStoreMock extends AbstractRootStore {
-	public routerStore: RouterStore;
-	public history: History;
+export class ReposStoreMock extends AbstractReposStore {
+  public getUser = async (handleRequest: (response: UserData) => void) => {
+    await new Promise(resolve => {
+      setTimeout(() => {
+        resolve(handleRequest);
+      }, 2000);
+    });
+  };
 
-	public constructor() {
-		super();
-		const browerHistory = createBrowserHistory();
-		this.routerStore = new RouterStore();
-		this.history = syncHistoryWithStore(browerHistory, this.routerStore);
+  public getUserRepos = async (
+    handleRequest: (response: RepoData[]) => void
+  ) => {
+    await new Promise(resolve => {
+      setTimeout(() => {
+        resolve(handleRequest);
+      }, 2000);
+    });
+  };
 
-		return {
-			routerStore: this.routerStore,
-			history: this.history,
-		};
-	}
+  public getUserReposStarred = async (
+    handleRequest: (response: StarredData[]) => void
+  ) => {
+    await new Promise(resolve => {
+      setTimeout(() => {
+        resolve(handleRequest);
+      }, 2000);
+    });
+  };
 }
-
-export const rootStoreMock = new RootStoreMock();
-export const rootStoreContextMock = createContext(rootStoreMock);

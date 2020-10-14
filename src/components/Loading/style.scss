@@ -2,49 +2,49 @@
 @import "../../SASS/variables.scss";
 
 @keyframes initial-loading {
-	0%,
-	100% {
-		transform: translate(-34px, 0);
-	}
-	50% {
-		transform: translate(96px, 0);
-	}
+  0%,
+  100% {
+    transform: translate(-34px, 0);
+  }
+  50% {
+    transform: translate(96px, 0);
+  }
 }
 
 .loadingContent {
-	position: absolute;
-	z-index: 1002;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	@include display(column, center, center);
-	.logoImage {
-		margin: 0 auto 32px;
-		transform: translate(0, 0);
-		opacity: 1;
-		transition: all 0.5s ease-out;
-	}
+  position: absolute;
+  z-index: 1002;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  @include display(column, center, center);
+  .logoImage {
+    margin: 0 auto 32px;
+    transform: translate(0, 0);
+    opacity: 1;
+    transition: all 0.5s ease-out;
+  }
 
-	.loadingBar {
-		width: 130px;
-		height: 2px;
-		margin: 0 auto;
-		border-radius: 2px;
-		background: #1f2140;
-		position: relative;
-		overflow: hidden;
-		z-index: 1;
-		transform: rotateY(0);
-		transition: transform 0.3s ease-in;
-	}
-	.blueBar {
-		height: 100%;
-		width: 68px;
-		position: absolute;
-		transform: translate(-34px, 0);
-		background: $tech;
-		border-radius: 2px;
-		animation: initial-loading 1.5s infinite ease;
-	}
+  .loadingBar {
+    width: 130px;
+    height: 2px;
+    margin: 0 auto;
+    border-radius: 2px;
+    background: #1f2140;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transform: rotateY(0);
+    transition: transform 0.3s ease-in;
+  }
+  .blueBar {
+    height: 100%;
+    width: 68px;
+    position: absolute;
+    transform: translate(-34px, 0);
+    background: $tech;
+    border-radius: 2px;
+    animation: initial-loading 1.5s infinite ease;
+  }
 }

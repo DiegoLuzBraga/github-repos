@@ -1,0 +1,38 @@
+@import "../../SASS/variables.scss";
+
+.button {
+  width: 242px;
+  height: 52px;
+  border: 0;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: $login-button;
+  cursor: pointer;
+  color: white;
+  outline: none;
+  &:hover {
+    background-color: $login-button-hover;
+  }
+  .spinning {
+    animation: spin 1s infinite linear;
+    -webkit-animation: webkit-spin 1s infinite linear;
+  }
+
+  @keyframes spin {
+    from {
+      transform: scale(1) rotate(0deg);
+    }
+    to {
+      transform: scale(1) rotate(360deg);
+    }
+  }
+
+  @-webkit-keyframes webkit-spin {
+    from {
+      -webkit-transform: rotate(0deg);
+    }
+    to {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+}

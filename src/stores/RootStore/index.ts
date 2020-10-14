@@ -6,33 +6,33 @@ import { rootStoreContextMock, RootStoreMock } from "./__mocks__";
 import { ReposStore } from "../ReposStore";
 
 export class RootStore extends AbstractRootStore {
-	public routerStore: RouterStore;
-	public history: History;
-	public reposStore: ReposStore;
+  public routerStore: RouterStore;
+  public history: History;
+  public reposStore: ReposStore;
 
-	public constructor() {
-		super();
-		const browerHistory = createBrowserHistory();
-		this.routerStore = new RouterStore();
-		this.history = syncHistoryWithStore(browerHistory, this.routerStore);
-		this.reposStore = new ReposStore();
+  public constructor() {
+    super();
+    const browerHistory = createBrowserHistory();
+    this.routerStore = new RouterStore();
+    this.history = syncHistoryWithStore(browerHistory, this.routerStore);
+    this.reposStore = new ReposStore();
 
-		return {
-			routerStore: this.routerStore,
-			history: this.history,
-			reposStore: this.reposStore,
-		};
-	}
+    return {
+      routerStore: this.routerStore,
+      history: this.history,
+      reposStore: this.reposStore
+    };
+  }
 }
 
 export const rootStore = new RootStore();
 export const rootStoreContext = createContext(rootStore);
 export let useStore = (): RootStore | RootStoreMock => {
-	return useContext(rootStoreContext);
+  return useContext(rootStoreContext);
 };
 
 if (process.env.UNIT_TEST) {
-	useStore = () => {
-		return useContext(rootStoreContextMock);
-	};
+  useStore = () => {
+    return useContext(rootStoreContextMock);
+  };
 }
