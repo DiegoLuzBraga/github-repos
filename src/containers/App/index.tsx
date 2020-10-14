@@ -5,6 +5,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import { Router } from "react-router";
 import { Provider } from "mobx-react";
 import { GitRepos } from "../GitRepos";
+import { UserRepo } from '../UserRepo';
 
 export const App = () => {
   return (
@@ -13,7 +14,7 @@ export const App = () => {
         <div className={s.pageLayout}>
           <Switch>
             <Route path="/" component={GitRepos} />
-            {/* <Route path="/:userName" component={GitRepos} /> */}
+            <Route path="/:userName" component={UserRepo} />
             {/* <Route path="/:userName/repos" component={GitRepos} /> */}
             {/* <Route path="/:userName/starred" component={GitRepos} /> */}
             {/* <Route
